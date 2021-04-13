@@ -10,8 +10,18 @@ io = socket(server);
 
 io.on("connection", (socket) => {
 
-  socket.on("send_message", (message) => {
-    socket.broadcast.emit("receive_message", message);
+  socket.emit("get_id", socket.id);
+
+  socket.on("join_room", (data) => {
+    socket.join(data.room);
+  });
+
+  socket.on("send_message", (data) => {
+    socket.to(data.room).emit("receive_message", data.content);
+  });
+
+  socket.on("send_private_emoji", (id) => {
+    io.to(id).emit('receive_private_emoji','🥊');
   });
 
   socket.on("disconnect", () => {

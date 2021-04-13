@@ -4,6 +4,11 @@ body {
   background-color: steelblue;
 }
 
+p{
+  padding: 0;
+  margin: 0;
+}
+
 header{
   background-color: slateblue;
   display: flex;
@@ -17,6 +22,14 @@ header{
   box-shadow:         0px 0px 3px 0px rgba(50, 50, 50, 0.75);
 }
 
+.login{
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .message{
   background-color: slateblue;
   border-radius: 25px;
@@ -24,7 +37,7 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1px;
+  flex-direction: column;
   margin: 10px;
 }
 
